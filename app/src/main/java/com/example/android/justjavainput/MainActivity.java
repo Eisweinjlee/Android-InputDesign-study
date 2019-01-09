@@ -34,25 +34,25 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void submitOrder(View view) {
-        String message = "";
-        if (quantity > 0) {
-            message = "Total: $" + quantity * 5;
-            message = message + "\nThank you!";
+        int price = calculatePrice();
+        String priceMessage;
+        if (price > 0) {
+            priceMessage = "Total: $" + price;
+            priceMessage = priceMessage + "\nThank you!";
         } else {
-            message = "Sorry, quantity should be larger than 0";
+            priceMessage = "Sorry, quantity should be larger than 0";
         }
-        displayMessage(message);
-
-        calculatePrice(quantity);
+        displayMessage(priceMessage);
     }
 
     /**
      * Calculates the price of the order.
      *
-     * @param quantity is the number of cups of coffee ordered
+     * @return the total price
      */
-    private void calculatePrice(int quantity) {
+    private int calculatePrice() {
         int price = quantity * 5;
+        return price;
     }
 
     /**
