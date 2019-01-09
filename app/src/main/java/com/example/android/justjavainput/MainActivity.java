@@ -42,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
             message = "Sorry, quantity should be larger than 0";
         }
         displayMessage(message);
+
+        calculatePrice(quantity);
+    }
+
+    /**
+     * Calculates the price of the order.
+     *
+     * @param quantity is the number of cups of coffee ordered
+     */
+    private void calculatePrice(int quantity) {
+        int price = quantity * 5;
     }
 
     /**
@@ -65,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void displayQuantity(int number) {
+    private void displayQuantity(int numberOfCoffee) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + numberOfCoffee);
     }
 
     /**
