@@ -36,12 +36,7 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
         int price = calculatePrice();
         String priceMessage;
-        if (price > 0) {
-            priceMessage = "Total: $" + price;
-            priceMessage = priceMessage + "\nThank you!";
-        } else {
-            priceMessage = "Sorry, quantity should be larger than 0";
-        }
+        priceMessage = createOrderSummary(price);
         displayMessage(priceMessage);
     }
 
@@ -51,8 +46,19 @@ public class MainActivity extends AppCompatActivity {
      * @return the total price
      */
     private int calculatePrice() {
-        int price = quantity * 5;
-        return price;
+        return quantity * 5;
+    }
+
+    /**
+     * Create an order summary.
+     */
+
+    private String  createOrderSummary(int price){
+        String priceMessage = "Name: Jackie Lee";
+        priceMessage += "\nQuantity: " + quantity;
+        priceMessage +=  "\nTotal: $" + price;
+        priceMessage +=  "\nThank you!";
+        return priceMessage;
     }
 
     /**
@@ -69,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void decrement(View view) {
-        quantity = quantity - 1;
+        if (quantity > 1) {
+            quantity = quantity - 1;
+        }
         displayQuantity(quantity);
     }
 
@@ -81,21 +89,13 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + numberOfCoffee);
     }
 
-    /**
-     * This method displays the given price on the screen.
-     */
-    private void displayPrice(int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
-
 
     /**
      * This method displays the given text on the screen.
      */
     private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
 
 }
