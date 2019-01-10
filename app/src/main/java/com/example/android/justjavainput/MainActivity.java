@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
      * Create an order summary.
      */
 
-    private String  createOrderSummary(int price){
+    private String createOrderSummary(int price) {
         String priceMessage = "Name: Jackie Lee";
         priceMessage += "\nQuantity: " + quantity;
-        priceMessage +=  "\nTotal: $" + price;
-        priceMessage +=  "\nThank you!";
+        priceMessage += "\nTotal: $" + price;
+        priceMessage += "\nThank you!";
         return priceMessage;
     }
 
