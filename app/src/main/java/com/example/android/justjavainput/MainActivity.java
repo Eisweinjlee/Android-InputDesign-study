@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -42,15 +43,17 @@ public class MainActivity extends AppCompatActivity {
         // chocolate ?
         CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
         boolean hasChocolate = chocolateCheckBox.isChecked();
+        // name ?
+        EditText text = (EditText) findViewById(R.id.name_field);
+        String name = text.getText().toString();
 
         int price = calculatePrice();
-        String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate);
+        String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate, name);
         displayMessage(priceMessage);
     }
 
     /**
      * Calculates the price of the order.
-     *
      * @return the total price
      */
     private int calculatePrice() {
@@ -61,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
      * Create an order summary.
      */
 
-    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate) {
-        String priceMessage = "Name: Jackie Lee";
-        priceMessage += "\nAdd whipped cream? "+ addWhippedCream;
+    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String name) {
+        String priceMessage = "Name: " + name;
+        priceMessage += "\nAdd whipped cream? " + addWhippedCream;
         priceMessage += "\nAdd chocolate? " + addChocolate;
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal: $" + price;
