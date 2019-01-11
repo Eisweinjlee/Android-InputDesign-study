@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:paddingLeft="24dp"
-            android:text="Whipped cream"
+            android:text="Whipped cream ($1 each)"
             android:textSize="16sp" />
 
         <CheckBox
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:paddingLeft="24dp"
-            android:text="Chocolate"
+            android:text="Chocolate ($2 each)"
             android:textSize="16sp" />
 
         <TextView
